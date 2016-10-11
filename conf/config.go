@@ -3,6 +3,6 @@ package conf
 import "os"
 
 var (
-	REDIS_URL  = os.Getenv("REDIS_URL")
-	REDIS_PORT = os.Getenv("REDIS_PORT")
+	RedisServer = os.Getenv("REDIS_URL")
+	RedisPort   = os.Getenv("REDIS_PORT")
 )

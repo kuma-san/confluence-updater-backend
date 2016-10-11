@@ -1,7 +1,7 @@
 package db
 
 import (
-	conf "github.com/kuma-san/confluence-update-backend"
+	"github.com/kuma-san/confluence-updater-backend/conf"
 	"gopkg.in/redis.v4"
 )
 
