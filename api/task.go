@@ -15,14 +15,15 @@ import (
 
 type (
 	req struct {
-		Ancestor string `json:"ancestor" validate:"required"`
-		SpaceKey string `json:"space_key" validate:"required"`
-		Title    string `json:"title"`
-		Template string `json:"template" validate:"required"`
-		Weekday  string `json:"weekday" validate:"required"`
-		Hour     string `json:"hour" validate:"required"`
-		SlackURL string `json:"slack_url"`
-		Email    string `json:"email"`
+		Ancestor     string `json:"ancestor" validate:"required"`
+		SpaceKey     string `json:"space_key" validate:"required"`
+		Title        string `json:"title"`
+		Template     string `json:"template" validate:"required"`
+		Weekday      string `json:"weekday" validate:"required"`
+		Hour         string `json:"hour" validate:"required"`
+		SlackURL     string `json:"slack_url"`
+		SlackChannel string `json:"slack_channel"`
+		Email        string `json:"email"`
 	}
 )
 
@@ -47,15 +48,16 @@ func PostTask() echo.HandlerFunc {
 		r.Template = "made by kumabot" + r.Template
 
 		a := map[string]string{
-			"task_id":   uuid,
-			"ancestor":  r.Ancestor,
-			"space_key": r.SpaceKey,
-			"title":     r.Title,
-			"template":  r.Template,
-			"weekday":   r.Weekday,
-			"hour":      r.Hour,
-			"slack_url": r.SlackURL,
-			"email":     r.Email,
+			"task_id":       uuid,
+			"ancestor":      r.Ancestor,
+			"space_key":     r.SpaceKey,
+			"title":         r.Title,
+			"template":      r.Template,
+			"weekday":       r.Weekday,
+			"hour":          r.Hour,
+			"slack_url":     r.SlackURL,
+			"slack_channel": r.SlackChannel,
+			"email":         r.Email,
 		}
 
 		redis := db.RedisInit()
